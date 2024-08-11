@@ -1,0 +1,721 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  height: 100vh;
+  width: 100%;
+  background: url(images/) no-repeat center center; /* Center the background */
+  background-size: cover; /* Cover the entire viewport */
+  background-color: black;
+}
+
+/* Queue Styling */
+.queue {
+  position: fixed;
+  top: 15vh;
+  right: 2vw;
+  width: 25vw;
+  height: 80vh;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+}
+
+.queue h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.queue ul {
+  list-style: none;
+  padding: 0;
+}
+
+.queue ul li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.queue ul li .sr-no {
+  width: 30px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.queue ul li .queue-img {
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.queue ul li .song-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.song-name {
+  font-weight: 600;
+  padding-left: 3vw;
+}
+
+.artist-name {
+  font-weight: 400;
+  font-size: 0.9em;
+  color: gray;
+  padding-left: 3vw;
+}
+
+.icons {
+  display: flex;
+  gap: 10px;
+}
+
+.icons i {
+  cursor: pointer;
+  color: #fff;
+}
+
+.queue ul li:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.queue ul li .song-name {
+  flex-grow: 1;
+  margin-left: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.queue ul li .artist-name {
+  font-size: 0.9rem;
+  font-weight: 200;
+  margin-top: 4px; /* Space between song and artist name */
+  color: #aaa; /* Lighter color for the artist name */
+}
+
+.queue ul li .icons {
+  display: flex;
+  gap: 10px; /* Space between icons */
+}
+
+.queue ul li .icons i {
+  font-size: 1.2rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* Scrollbar Styling */
+.queue::-webkit-scrollbar {
+  width: 8px;
+}
+
+.queue::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+}
+
+.queue::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Icon Hover Effect */
+.queue ul li .icons i:hover {
+  color: #ff4757; /* Change color on hover */
+}
+
+/* Navigation Bar Styling */
+.nav-box {
+  display: flex;
+  background-color: black;
+  height: 10vh;
+  width: 100%;
+}
+
+.left {
+  align-items: center;
+  height: 10vh;
+  justify-content: center;
+  list-style: none;
+  color: white;
+  display: flex;
+}
+
+.left p {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: rgb(30, 104, 206);
+  margin-left: 0.5vw;
+}
+
+.left li a {
+  font-weight: 500;
+  margin-left: 70px;
+  font-size: 1rem;
+  color: white;
+  text-decoration: none;
+}
+
+.left img {
+  height: 60px;
+}
+
+.right {
+  margin-left: auto;
+  height: 70px;
+  width: 400px;
+}
+
+.right nav ul {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.right nav ul li {
+  margin-top: -1vh;
+  padding: 2vw;
+}
+
+.right nav ul li i {
+  font-size: 20px; /* Adjust the size of the icon */
+  color: white; /* Adjust color if needed */
+}
+
+#search {
+  margin-top: -2vh;
+  height: 35px;
+  width: 150px;
+  border-radius: 20px;
+  font-size: 1rem;
+  margin-right: 3vw;
+}
+
+/* Main Content Styling */
+.Main {
+  display: flex;
+}
+
+/* New Releases Section */
+.new-releases {
+  display: flex;
+  justify-content: center;
+  margin-left: 2vw;
+  align-items: center;
+  margin-top: 5vh;
+  gap: 3vw;
+  width: 70%;
+}
+
+.image-container {
+  position: relative;
+  z-index: 1;
+  transition: z-index 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+}
+
+.image-container img {
+  opacity: 1;
+  height: 50vh;
+  width: 20vw;
+  border-radius: 10px;
+}
+
+.image-container:nth-child(2) {
+  transform: scale(1.2);
+  margin-left: -10%;
+  z-index: 2;
+}
+
+.image-container:nth-child(1),
+.image-container:nth-child(3) {
+  margin-left: -10%;
+  z-index: 1;
+}
+
+.image-container:nth-child(1),
+.image-container:nth-child(3) {
+  opacity: 0.4;
+}
+
+/* Ensure correct opacity for second child when the third child is hovered */
+.image-container:nth-child(3):hover ~ .image-container:nth-child(2) {
+  opacity: 0.4;
+}
+
+/* Ensure opacity for all siblings when any image container is hovered */
+.image-container:hover .image-container {
+  opacity: 0.4;
+}
+
+/* Ensure hovered image has full opacity and is on top */
+.image-container:hover {
+  z-index: 3;
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Specific Height Adjustments */
+#Talwinder img,
+#unwind img {
+  height: 35vh;
+}
+
+#tayler img {
+  height: 50vh;
+}
+
+/* Latest Releases Section */
+.latest-release {
+  margin-left: 10%;
+  position: relative;
+  width: 70%;
+  margin-top: 5%;
+  font-family: Arial, sans-serif;
+}
+
+.options-menu {
+  position: relative;
+}
+
+.dots {
+  margin-top: 2vh;
+  cursor: pointer;
+  display: flex;
+}
+
+/* Dropdown Menu initially hidden */
+.dropdown-content {
+  display: none; /* Ensure it's hidden by default */
+  position: absolute; /* Use absolute positioning */
+  background-color: white; /* Background color for dropdown */
+  min-width: 150px; /* Minimum width for dropdown */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Shadow for dropdown */
+  z-index: 1000; /* Ensure it appears above other elements */
+}
+/* Show dropdown when active */
+.options-menu.active .dropdown-content {
+  display: block; /* Show dropdown when active */
+}
+/* Dropdown Links */
+.dropdown-content a {
+  color: black; /* Text color */
+  padding: 12px 16px; /* Padding around the text */
+  text-decoration: none; /* No underline */
+  display: block; /* Block display to stack links */
+}
+
+/* Change background on hover */
+.dropdown-content a:hover {background-color: #f1f1f1;}
+.dropdown-trigger {
+  color: white; /* Set the color of the three dots to white */
+}
+
+.latest-release h3 {
+  color: white;
+  height: 5vh;
+  width: 15vw;
+}
+
+.latest-release .dusra {
+  list-style: none;
+  margin-left: 10vw;
+}
+
+.lrmain {
+  display: flex;
+}
+
+.lrmain img:hover {
+  opacity: 0.3;
+}
+
+/* Release Item Styling */
+.release-item {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* Play Button Styling */
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 26%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem; /* Adjust the size as needed */
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none; /* Prevent the button from interfering with clicks on the image */
+}
+
+/* Show Play Button on Hover */
+.release-item:hover .play-button {
+  opacity: 1;
+}
+
+/* Adjust Opacity of Image on Hover */
+.release-item:hover img {
+  opacity: 0.3;
+}
+
+.pehla,
+.dusra {
+  display: inline-block;
+  position: relative;
+}
+
+.pehla img,
+.dusra img {
+  margin: 3% 3%;
+  height: 20vh;
+  width: auto;
+}
+
+/* Text Styling */
+.pehla ul li p,
+.dusra ul li p {
+  color: white;
+  margin-top: 10%;
+  height: 8vh;
+  width: 10vw;
+  margin-left: 1vw;
+}
+
+.pehla .date,
+.dusra .date {
+  margin-top: 8vh;
+  margin-left: -9.5vw;
+  font-weight: 300;
+  font-size: small;
+}
+
+.pehla ul li p:hover,
+.dusra ul li p:hover {
+  color: rgb(7, 250, 7);
+}
+
+/* Latest Release Box */
+#firstimg,
+#secimg,
+#thirdimg,
+#fourthimg {
+  display: flex;
+}
+
+/* Popular Artist Section */
+.popular-artist {
+  margin-top: 3vh;
+  margin-left: 10%;
+  width: 70%;
+  height: 35vh;
+}
+
+.popular-artist nav ul {
+  display: flex;
+  margin-top: -5vh;
+}
+
+.popular-artist nav ul li {
+  list-style: none;
+  padding: 1%;
+  height: 25vh;
+  width: auto;
+}
+
+.popular-artist nav ul li img {
+  border-radius: 50%;
+  height: 18vh;
+  width: 9vw;
+}
+.popular-artist nav ul li a{
+  text-decoration: none;
+  color: white;
+}
+
+.popular-artist nav ul li img:hover {
+  height: 20vh;
+  width: 10vw;
+  transition: 0.2s all ease-in-out;
+}
+
+.popular-artist nav ul li {
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+.popular-artist h3 {
+  color: white;
+  height: 5vh;
+  width: 15vw;
+  margin-bottom: 2%;
+}
+
+/* Stations Section */
+.stations {
+  border-radius: 20px;
+  align-items: center;
+  display: flex;
+  margin-left: 10vw;
+  height: 22vh;
+  width: 52vw;
+  background-color: rgb(27, 26, 26);
+}
+
+.stations span img {
+  border-radius: 20%;
+  height: 16vh;
+  width: 8vw;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+.stations nav ul {
+  list-style: none;
+  display: flex;
+}
+
+.stations nav ul li {
+  position: relative;
+  display: inline-block;
+}
+
+.stations nav ul li img {
+  margin: 0.2vw;
+  height: 15vh;
+  width: 7.5vw;
+  border-radius: 50%;
+  opacity: 0.2;
+}
+
+.stations nav ul li img:hover {
+  opacity: 1;
+  transition: 1s all ease-in-out;
+}
+
+.stations nav ul li .overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1em; /* Adjust size as needed */
+  text-align: center;
+}
+
+/* Category Section */
+.category {
+  justify-content: center;
+  align-items: center;
+  margin-top: 2.5vh;
+  border-radius: 20px;
+  display: flex;
+  margin-left: 8vw;
+  height: 22vh;
+  width: 55vw;
+}
+
+.category nav ul {
+  display: flex;
+}
+
+.category nav ul li {
+  list-style: none;
+  margin: 0 0.5vw;
+  position: relative; /* Make li position relative to contain absolutely positioned text */
+}
+
+.category img {
+  border-radius: 10%;
+  height: 20vh;
+  opacity: 0.4;
+}
+
+.category img:hover {
+  height: 22vh;
+  transition: 0.4s all ease-in-out;
+}
+
+.category nav ul li .overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1em; /* Adjust size as needed */
+  text-align: center;
+  white-space: nowrap; /* Prevent text from wrapping */
+  pointer-events: none; /* Allow clicks to pass through text */
+}
+
+/* Latest English Section */
+.latest-english {
+  margin-top: 1%;
+  margin-left: 8vw;
+  width: 55vw;
+  height: 25vh;
+}
+
+.latest-english h3 {
+  margin-left: 1.5vw;
+  color: white;
+  height: 5vh;
+  width: 15vw;
+  margin-bottom: 2%;
+}
+
+.latest-english nav ul {
+  margin-top: -1%;
+  margin-left: 2%;
+  display: flex;
+}
+
+.latest-english nav ul li {
+  list-style: none;
+  margin: 0 8px;
+  height: 25vh;
+  width: auto;
+}
+
+.latest-english nav ul li img {
+  border-radius: 20%;
+  height: 18vh;
+  width: auto;
+}
+
+.latest-english nav ul li img:hover {
+  height: 20vh;
+  transition: 0.2s all ease-in-out;
+}
+
+.latest-english nav ul li {
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+/* Latest Hindi Section */
+.latest-hindi h3 {
+  margin-left: 1.5vw;
+  color: white;
+  height: 5vh;
+  width: 15vw;
+  margin-bottom: 2%;
+}
+
+.latest-hindi {
+  margin-top: 4%;
+  margin-left: 8vw;
+  width: 55vw;
+  height: 25vh;
+}
+
+.latest-hindi nav ul {
+  margin-top: -1%;
+  margin-left: 2%;
+  display: flex;
+}
+
+.latest-hindi nav ul li {
+  list-style: none;
+  margin: 0 8px;
+  height: 25vh;
+  width: auto;
+}
+
+.latest-hindi nav ul li img {
+  border-radius: 20%;
+  height: 18vh;
+  width: fit-content;
+}
+
+.latest-hindi nav ul li img:hover {
+  height: 20vh;
+  transition: 0.2s all ease-in-out;
+}
+
+.latest-hindi nav ul li {
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+/*song-player rocker*/
+.song-player{
+  height: 8vh;
+  width: 100vw;
+  background-color:lightgrey;
+  position: absolute;
+  display: none;
+}
+.song-image img{
+  height: 5vh;
+  position: absolute;
+  display: flex;
+  align-items: flex-start;
+  margin-top: 2vh;
+  margin-left: 4vw;
+}
+.name{
+  margin-left: 7vw;
+  padding-top: 1.9vh;
+}
+.name .singer-name{
+  font-weight: 200;
+  font-size: small;
+}
+.heart-icon{
+  margin-left: 13vw;
+  margin-top: -4vh;
+}
+.pause-icon{
+  margin-left: 50vw;
+  margin-top: -2.5vh;
+}
+.pause-icon i{
+  padding-left: 0.5vw;
+}
+.shuffle i{
+  padding-right: 2vw;
+}
+.rocker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 15vw;
+}
+
+.rocker .vr {
+  width: 30vw; 
+  height: 1vh;
+  color: lightslategray;
+  background-color: lightslategray;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+.volume-icons{
+  margin-left: 85vw;
+  margin-top: -2vw;
+}
+

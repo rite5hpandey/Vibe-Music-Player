@@ -1,0 +1,252 @@
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+body{
+    font-family: sans-serif;
+    box-sizing: border-box;
+    text-decoration: none;
+    height: 100vh;
+    width: 100%;
+}
+.container{
+    height: 180vh;
+    width: 100%;
+    position: relative;
+    background: radial-gradient(circle at 10% 20%, rgb(0, 0, 0) 0%, rgb(64, 64, 64) 90.2%);
+    
+} 
+.navbar{
+    display: flex;
+    height: 10vh;
+    width: 100%;
+}
+.left{
+    height:9vh;
+    width: 35vw;
+    margin-top: 3vh;
+
+}
+.left nav ul {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.left nav ul li{
+    list-style: none;
+    margin: 0 2vw;
+    text-align: center;  
+}
+.left nav ul li a{
+    text-decoration: none;
+    color: white;
+}
+.left img{
+    height: 9vh;
+    width: 5vw;
+    border-radius: 50%;
+}
+.right{
+    margin-left:auto;
+    position: relative;
+    height:9vh;
+    width: 30vw;
+    margin-top: 3vh;
+    
+}
+.right nav ul{
+    justify-content: center;
+    align-items: center;
+    display:flex;
+    list-style: none;
+}
+.right nav ul li a{
+    color: white;
+    margin: 2vw;
+}
+.right i{
+    color: white;
+}
+
+/* Search bar styling here */
+.search-bar {
+    margin-right: 5vw;
+    display: inline-block;
+}
+.search-bar input[type="text"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.mainbox{
+    margin-top: 7vh;
+    display: flex;
+    height: 163vh;
+    width: 100%;
+}
+.leftbox{
+    height: 140vh;
+    width: 70%;
+
+}
+.artisthead{
+    margin-left: 8vh;
+    display: flex;
+    height: 40vh;
+    width:80%;
+}
+
+/* Tayler swift main info starts here */
+#taylerimage img{
+    margin: 0 2vw ;
+    border-radius: 6%;
+    height: 38vh;
+}
+.Intropart{
+    position: relative;
+    margin-top: 2vh;
+    color: white;
+}
+#Taylerheading p{
+    margin-left: 1vh;
+    font-size: 0.7rem;
+    color: rgb(218, 211, 211);
+}
+.desc{
+    width: 40vw;
+    margin-top: 8vh;
+}
+.desc p{
+    color: white;
+    font-size:0.9rem;
+}
+
+.taylerplaybutton{
+    margin-top: 10vh;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-radius:12px;
+    color: white;
+    text-decoration: none;
+    height: 6vh;
+    width: 9vw;
+    background: radial-gradient(circle at 10% 20%, rgb(0, 0, 0) 0%, rgb(64, 64, 64) 90.2%);
+
+}
+.taylerplaybutton:hover{
+    background: radial-gradient(circle at 10% 20%, rgb(49, 47, 47) 0%, rgb(106, 103, 103) 90.2%);
+    height: 6.5vh;
+    width: 9.5vw;
+
+}
+
+
+
+/* Queue starts here */
+.queue{ 
+    margin-left: 5vh;
+    margin-top: 3vh;
+    width:90%;
+    border-radius: 8px;
+}
+.queue img{
+    margin-left: 2vh;
+    height: 6vh;
+}
+#boxes{
+    align-items: center;
+    justify-content: center;
+    margin-top: 2vh;
+    font-size: 0.9rem;
+    font-family: "Ubuntu";
+    color: white;
+    margin-left: 10vh;
+    width: 80%;
+    height: 8vh;
+    border-radius:5px;
+    background-blend-mode:multiply;
+    background-color: rgb(0, 0, 0);
+}
+.box{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.box:hover{
+    background-color: grey;
+    height: 8vh;
+
+}
+.box img{
+    margin-top:1vh;
+    margin-right: 2vh;
+}
+.box h3,p{
+    height: 3vh;
+}
+.liked{
+    margin-right: 2vh;
+    margin-left: auto;
+}
+/* Right side ki styling yha se */
+.rightbox{
+    height: 140vh;
+    width: 25%;
+}
+.Similar-Artist{
+    padding: 2vh;
+    border-radius: 10px;
+    box-shadow:2px 2px 2px 2px;
+    height: 60vh;
+}
+.Similar-Artist h3{
+    color: white;
+}
+.Similar-Artist:hover{
+    background-color: black;
+}
+.SAqueue{
+    margin-top: 3vh;
+    display: flex;
+    height: 10vh;
+}
+.SAqueue p{
+    color: rgb(179, 179, 179);
+    font-size: 0.8rem;
+}
+.SAqueue img{
+    border-radius: 5px;
+    margin: 0 2vh 0 2vh;
+    height: 10vh;
+}
+
+/* Recently Played starts here */
+
+.Recently-played{
+    padding: 2vh;
+    border-radius: 10px;
+    margin-top: 5vh;
+    height: 80vh;
+    box-shadow: 1px 2px 2px 2px;
+}
+.Recently-played:hover{
+    background-color: black;
+}
+.Recently-played h3{
+    color: white;
+}
+.Recently-played img{
+    margin-right: 2vh;
+    height: 6vh;
+}
+.RPqueue{
+    margin-top: 3vh;
+    display: flex;
+    height: 8vh;
+}
+.RPqueue p{
+    color: rgb(179, 179, 179);
+    font-size: 0.7rem;
+}
